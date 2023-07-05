@@ -31,6 +31,28 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+	<style>
+		/* #map {
+		  width: 100%;
+		  height: 400px;
+		} */
+
+		.google-map {
+			padding-bottom: 50%;
+			position: relative;
+		}
+
+		.google-map iframe {
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			position: absolute;
+		}
+	  </style>
+
 </head>
 
 <body>
@@ -53,7 +75,7 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="reservation.html">Reservation</a>
+								<!-- <a class="dropdown-item" href="reservation.html">Reservation</a> -->
 								<a class="dropdown-item" href="staff.html">Staff</a>
 								<a class="dropdown-item" href="gallery.html">Gallery</a>
 								<a class="dropdown-item" href="lodging.html">Lodging</a>
@@ -62,8 +84,8 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="blog.html">blog</a>
-								<a class="dropdown-item" href="blog-details.html">blog Single</a>
+								<a class="dropdown-item" href="blog.html">foods</a>
+								<a class="dropdown-item" href="lodge.html">Lodging</a>
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -85,6 +107,18 @@
 		</div>
 	</div>
 	<!-- End All Pages -->
+
+    <!-- Start Location info -->
+
+    <!-- <div id="map"></div> -->
+	<div class="google-map">
+		<!-- <iframe src="[your unique google URL] " width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1584.3865422531235!2d74.10166051034257!3d19.180893047032605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdd23356e19fc1f%3A0x8117ce140108065a!2sHotel%20rajeshahi%20pure%20veg%20%26%20loging!5e0!3m2!1sen!2sin!4v1688538545736!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   </div>
+
+
+    <!-- End All Pages -->
+
 	
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
@@ -203,10 +237,28 @@
 					lng: -74.0059731,
 					marker: true,
 					title: 'Marker title',
-					infoWindow: 'Yamifood Restaurant'
+					infoWindow: 'Hotel Rajeshahi'
 				}
 			]
 		});	
 	</script>
+
+<script>
+	function initMap() {
+	//   var location = {lat: 37.7749, lng: -122.4194}; // Replace with your desired latitude and longitude coordinates
+      var location = "https://goo.gl/maps/rFTX8mW2eB4NVr2Q6";
+	  var map = new google.maps.Map(document.getElementById('map'), {
+		center: location,
+		zoom: 15 // Adjust the zoom level as needed
+	  });
+  
+	  var marker = new google.maps.Marker({
+		position: location,
+		map: map,
+		title: 'Your Location' // Replace with a custom marker title
+	  });
+	}
+  </script>
+
 </body>
 </html>
